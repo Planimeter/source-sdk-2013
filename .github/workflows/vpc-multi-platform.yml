@@ -55,12 +55,14 @@ jobs:
     - if: ${{ matrix.os == 'ubuntu-latest' }}
       name: createallprojects
       run: >
-        ./mp/src/createallprojects
+        ./createallprojects
+      working-directory: ./mp/src
 
     - if: ${{ matrix.os == 'windows-latest' }}
       name: createallprojects.bat
       run: >
-        .\mp\src\createallprojects.bat
+        .\createallprojects.bat
+      working-directory: .\mp\src
 
     - name: Build
       # Build your program with the given configuration. Note that --config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
